@@ -35,11 +35,10 @@ class Manager < Employee
     puts "email sent!"
   end
 
-  def give_all_raises
-    puts "give many moneys"
-    index = 0
+  def fire_all_employees
+    puts "go away"
     @employees.each do |employee|
-      employee.give_annual_raise
+      employee.active = false
     end
   end
 end
@@ -48,5 +47,5 @@ manager = Manager.new(first_name: "Sharon", last_name: "Jacobs", salary: 100000,
 manager.print_info
 manager.send_report
 pp manager.employees
-manager.give_all_raises
+manager.fire_all_employees
 pp manager.employees
