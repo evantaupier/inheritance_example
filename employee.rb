@@ -49,3 +49,14 @@ manager.send_report
 pp manager.employees
 manager.fire_all_employees
 pp manager.employees
+
+class Intern < Employee
+  def send_report
+    puts "sending emial..."
+    # use email sending library
+    puts "email sent!"
+  end
+end
+
+intern = Intern.new(first_name: "Adrienne", last_name: "Lowe", salary: 50000, active: true)
+intern.print_info
