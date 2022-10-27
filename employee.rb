@@ -1,3 +1,11 @@
+module EmailReportable
+  def send_report
+    puts "sending emial..."
+    # use email sending library
+    puts "email sent!"
+  end
+end
+
 class Employee
   attr_reader :first_name, :last_name, :active
   attr_writer :active
@@ -29,11 +37,7 @@ class Manager < Employee
     @employees = input_options[:employees]
   end
 
-  def send_report
-    puts "sending emial..."
-    # use email sending library
-    puts "email sent!"
-  end
+  include EmailReportable
 
   def fire_all_employees
     puts "go away"
@@ -46,16 +50,9 @@ end
 manager = Manager.new(first_name: "Sharon", last_name: "Jacobs", salary: 100000, active: true, employees: [employee1, employee2])
 manager.print_info
 manager.send_report
-pp manager.employees
-manager.fire_all_employees
-pp manager.employees
 
 class Intern < Employee
-  def send_report
-    puts "sending emial..."
-    # use email sending library
-    puts "email sent!"
-  end
+  include EmailReportable
 end
 
 intern = Intern.new(first_name: "Adrienne", last_name: "Lowe", salary: 50000, active: true)
